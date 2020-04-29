@@ -1,0 +1,39 @@
+int flip = 2;
+int val; 
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(96000);
+ pinMode(flip,INPUT);
+  pinMode(7,INPUT);
+  pinMode(8,INPUT);
+  pinMode(9,INPUT);
+  pinMode(10,INPUT);
+val = digitalRead(flip); 
+}
+
+void loop() {
+ 
+int count=0;  
+//DC MOTOR OF LOW RPM
+//this is for pushing of dough
+  digitalWrite(7,HIGH);
+  digitalWrite(8,LOW);
+  delay(1000);
+ digitalWrite(7,LOW);
+  digitalWrite(8,LOW);
+  delay(1000);
+
+  while(val==0)
+  {
+   count++; 
+  }
+  //DC MOTORS OF SOME HIGH RPM SO THAT IT SHOULD HOLD "GEARS" TOO
+  //this is for shaping dough
+  digitalWrite(9,HIGH);
+  digitalWrite(10,LOW);
+  delay(1000);
+ digitalWrite(9,LOW);
+  digitalWrite(10,LOW);
+  delay(1000);
+
+}
